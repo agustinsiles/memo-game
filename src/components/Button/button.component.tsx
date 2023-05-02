@@ -5,6 +5,7 @@ export interface IProps
     >,
     React.AriaAttributes {}
 
-export default function Button({ children }: IProps) {
-  return <button>{children}</button>;
+export default function Button(props: IProps) {
+  const { children } = props;
+  return <button {...props}>{children}</button>;
 }

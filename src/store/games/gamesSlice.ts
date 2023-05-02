@@ -10,14 +10,15 @@ type State = {
 };
 const initialState: State = {
   games: [],
+  activeGame: undefined,
 };
 
 export const gamesSlice = createSlice({
   name: "games",
   initialState,
   reducers: {
-    startNewGame: (state) => {
-      const gameId = Math.random();
+    startNewGame: (state, action) => {
+      const gameId = action.payload;
 
       state.games.push({
         id: gameId,
@@ -43,6 +44,9 @@ export const gamesSlice = createSlice({
         ...currentGame,
         status: GameStatus.OVER,
       };
+    },
+    quitGame: (state) => {
+      state.activeGame = undefined;
     },
     revealCard: (state, action) => {
       const currentGame = state.games.find(
@@ -70,7 +74,13 @@ export const gamesSlice = createSlice({
   },
 });
 
-export const { revealCard, startNewGame, hideCards, guessedPaired, endGame } =
-  gamesSlice.actions;
+export const {
+  revealCard,
+  startNewGame,
+  hideCards,
+  guessedPaired,
+  endGame,
+  quitGame,
+} = gamesSlice.actions;
 
 export default gamesSlice.reducer;
