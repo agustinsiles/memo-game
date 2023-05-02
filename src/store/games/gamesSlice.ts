@@ -1,8 +1,8 @@
 import { Game } from "@/models/Game";
-import { GameStatus } from "@/utils/enums";
+import { GameCategories, GameStatus } from "@/utils/enums";
 import { shuffleCards } from "@/utils/utils";
 import { createSlice } from "@reduxjs/toolkit";
-import data from "../../utils/games.json";
+import cards from "../../utils/cards.json";
 
 type State = {
   games: Game[];
@@ -17,12 +17,15 @@ export const gamesSlice = createSlice({
   name: "games",
   initialState,
   reducers: {
-    startNewGame: (state, action) => {
-      const gameId = action.payload;
+    startNewGame: (
+      state,
+      action: { payload: { gameId: number; category: GameCategories } }
+    ) => {
+      const { gameId, category } = action.payload;
 
       state.games.push({
         id: gameId,
-        cards: shuffleCards(data.cards),
+        cards: shuffleCards(cards[category]),
         status: GameStatus.IN_PROGRESS,
         flippedCards: [],
         guessedCards: [],

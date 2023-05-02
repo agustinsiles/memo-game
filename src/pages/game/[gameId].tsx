@@ -12,7 +12,7 @@ export default function GameItem() {
   );
 
   return (
-    <div>
+    <div className="grid grid-cols-6">
       {game?.cards.map((card: MemoCard) => {
         return <MemoCardItem key={card.id} />;
       })}

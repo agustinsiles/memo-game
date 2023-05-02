@@ -3,3 +3,8 @@ export enum GameStatus {
   OVER,
   NOT_STARTED,
 }
+
+export enum GameCategories {
+  SPORTS = "SPORTS",
+  MUSIC = "MUSIC",
+}

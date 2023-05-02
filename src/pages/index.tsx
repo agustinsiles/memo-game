@@ -4,21 +4,42 @@ import { useRouter } from "next/router";
 import { RootState } from "@/store/store";
 import { Game } from "@/models/Game";
 import Button from "@/components/Button/button.component";
+import { GameCategories } from "@/utils/enums";
+import { useState } from "react";
+
+const categories = Object.keys(GameCategories);
 
 export default function Home() {
   const gameList = useSelector((state: RootState) => state.games.games);
   const dispatch = useDispatch();
   const router = useRouter();
+  const [showGameCategories, setShowGameCategories] = useState(false);
 
-  const handleNewGameClick = () => {
-    const id = Math.random();
-    dispatch(startNewGame(id));
-    router.push(`/game/${id}`);
+  const handleShowCategoriesClick = () => {
+    setShowGameCategories(true);
+  };
+
+  const handleNewGameClick = (category: GameCategories) => {
+    const gameId = Math.random();
+    dispatch(startNewGame({ gameId, category }));
+    router.push(`/game/${gameId}`);
   };
 
   return (
     <div>
-      <Button onClick={handleNewGameClick}>New game</Button>
+      <Button onClick={handleShowCategoriesClick}>New game</Button>
+      {showGameCategories && (
+        <>
+          {categories.map((category) => (
+            <Button
+              onClick={() => handleNewGameClick(category as GameCategories)}
+              key={category}
+            >
+              {category}
+            </Button>
+          ))}
+        </>
+      )}
       <ul>
         {gameList.map((game: Game) => (
           <li key={game.id}>{game.id}</li>
