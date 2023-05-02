@@ -1,5 +1,3 @@
-import { Game } from "@/models/Game";
-
-export default function Score({ game }: { game: Game }) {
-  return <span>Score: {game.score}</span>;
+export default function Score({ score }: { score: number }) {
+  return <span>Score: {score}</span>;
 }

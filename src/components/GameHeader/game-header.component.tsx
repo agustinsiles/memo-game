@@ -4,7 +4,7 @@ import Score from "../Score/score.component";
 import RetriesCounter from "../RetriesCounter/retries-counter.component";
 
 export default function GameHeader({ game }: { game: Game }) {
-  const { id, status } = game;
+  const { id, status, score } = game;
   return (
     <header>
       <h3>
@@ -14,7 +14,7 @@ export default function GameHeader({ game }: { game: Game }) {
         ) : (
           <>
             WON!
-            <Score game={game} />
+            <Score score={score} />
           </>
         )}
       </h3>

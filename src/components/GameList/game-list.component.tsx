@@ -35,7 +35,7 @@ export default function GameList() {
             </Button>
           ) : (
             <>
-              <span>WON!</span> <Score game={game} />
+              <span>WON!</span> <Score score={game.score} />
             </>
           )}
         </li>
