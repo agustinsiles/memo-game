@@ -103,6 +103,7 @@ export const {
   guessedPaired,
   endGame,
   quitGame,
+  resumeGame,
 } = gamesSlice.actions;
 
 export default gamesSlice.reducer;
