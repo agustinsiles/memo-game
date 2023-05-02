@@ -8,4 +8,5 @@ export type Game = {
   flippedCards: MemoCard[];
   guessedCards: MemoCard[];
   score: number;
+  retries: number;
 };

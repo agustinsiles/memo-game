@@ -8,3 +8,7 @@ export function shuffleCards(cards: MemoCard[]) {
       id: Math.random(),
     }));
 }
+
+export function getScore(retries: number, numberOfPairs: number): number {
+  return (numberOfPairs / retries) * 100;
+}

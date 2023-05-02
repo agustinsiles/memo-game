@@ -1,6 +1,6 @@
 import { Game } from "@/models/Game";
 import { GameCategories, GameStatus } from "@/utils/enums";
-import { shuffleCards } from "@/utils/utils";
+import { getScore, shuffleCards } from "@/utils/utils";
 import { createSlice } from "@reduxjs/toolkit";
 import cards from "../../utils/cards.json";
 
@@ -44,6 +44,7 @@ export const gamesSlice = createSlice({
         flippedCards: [],
         guessedCards: [],
         score: 0,
+        retries: 0,
       });
 
       state.activeGame = gameId;
@@ -51,8 +52,7 @@ export const gamesSlice = createSlice({
       saveSession(state);
     },
     resumeGame: (state, action) => {
-      const gameId = action.payload.gameId;
-      state.activeGame = gameId;
+      state.activeGame = action.payload.gameId;
       saveSession(state);
     },
     endGame: (state) => {
@@ -61,6 +61,10 @@ export const gamesSlice = createSlice({
       )!;
 
       currentGame.status = GameStatus.OVER;
+      currentGame.score = getScore(
+        currentGame.retries,
+        currentGame.cards.length / 2
+      );
       saveSession(state);
     },
     quitGame: (state) => {
@@ -75,6 +79,7 @@ export const gamesSlice = createSlice({
       const card = action.payload;
       if (currentGame.flippedCards.length < 2) {
         currentGame.flippedCards.push(card);
+        if (currentGame.flippedCards.length === 2) currentGame.retries++;
       }
       saveSession(state);
     },

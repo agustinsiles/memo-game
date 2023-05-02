@@ -1,12 +1,11 @@
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "@/store/store";
 import { useRouter } from "next/router";
-import { MemoCard } from "@/models/MemoCard";
-import MemoCardItem from "@/components/MemoCardItem/memo-card-item.component";
 import { endGame, guessedPaired, hideCards } from "@/store/games/gamesSlice";
 import { useEffect } from "react";
 import { Game } from "@/models/Game";
-import { GameStatus } from "@/utils/enums";
+import GameHeader from "@/components/GameHeader/game-header.component";
+import MemoCardList from "@/components/MemoCardList/memo-card-list.component";
 
 export default function GameItem() {
   const router = useRouter();
@@ -15,7 +14,7 @@ export default function GameItem() {
   const game = useSelector((state: RootState) =>
     state.games.games.find((game) => game.id === Number(gameId))
   );
-  const { flippedCards, guessedCards, cards, status } = game || ({} as Game);
+  const { flippedCards, guessedCards, cards } = game || ({} as Game);
 
   useEffect(() => {
     if (guessedCards && cards && guessedCards.length === cards.length) {
@@ -46,16 +45,8 @@ export default function GameItem() {
 
   return (
     <>
-      <h3>
-        Game #{gameId} -{" "}
-        {status === GameStatus.IN_PROGRESS ? "In progres..." : "WON!"}
-      </h3>
-      <div className="grid grid-cols-6">
-        {game.cards.map((card: MemoCard, index: number) => {
-          const position = index + 1;
-          return <MemoCardItem card={card} position={position} key={card.id} />;
-        })}
-      </div>
+      <GameHeader game={game} />
+      <MemoCardList cards={cards} />
     </>
   );
 }

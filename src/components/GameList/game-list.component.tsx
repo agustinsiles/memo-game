@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { GameStatus } from "@/utils/enums";
 import Button from "../Button/button.component";
+import Score from "../Score/score.component";
 
 export default function GameList() {
   const dispatch = useDispatch();
@@ -33,7 +34,9 @@ export default function GameList() {
               Resume
             </Button>
           ) : (
-            "Won"
+            <>
+              <span>WON!</span> <Score game={game} />
+            </>
           )}
         </li>
       ))}
