@@ -1,42 +1,42 @@
 {
   "SPORTS": [
     {
-      "image": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/056/683/products/rompecabezas-mini-animales-011-f51dbabe4e21b2070b16339649476982-240-0.jpg"
+      "image": "/images/sports/soccer.jpeg"
     },
     {
-      "image": "https://d3ugyf2ht6aenh.cloudfront.net/stores/910/057/products/kr972292-kr971721_011-c521a61d3684ac0a0b16602621163223-480-0.jpg"
+      "image": "/images/sports/golf.jpeg"
     },
     {
-      "image": "https://d3ugyf2ht6aenh.cloudfront.net/stores/910/057/products/memoespacio_011-ceaebf0cac3bd13dbe16051297859790-480-0.jpg"
+      "image": "/images/sports/baseball.jpeg"
     },
     {
-      "image": "https://http2.mlstatic.com/D_NQ_NP_868089-MLA48269714555_112021-O.webp"
+      "image": "/images/sports/american-football.jpeg"
     },
     {
-      "image": "https://d22fxaf9t8d39k.cloudfront.net/24e36efd9fdd4b17b14675b445929b33a5c8af0c6b5925306b17f49d4e0a931429655.jpeg"
+      "image": "/images/sports/tennis.jpeg"
     },
     {
-      "image": "https://mobbyt.com/media/gallery/a7d0d74b04d0d57c9cf5ac3f626aafe9/4d0c01ed_2020-09-14-mobbyt.png"
+      "image": "/images/sports/volleyball.jpeg"
     }
   ],
   "MUSIC": [
     {
-      "image": "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/056/683/products/rompecabezas-mini-animales-011-f51dbabe4e21b2070b16339649476982-240-0.jpg"
+      "image": "/images/music/acoustic-guitar.jpeg"
     },
     {
-      "image": "https://d3ugyf2ht6aenh.cloudfront.net/stores/910/057/products/kr972292-kr971721_011-c521a61d3684ac0a0b16602621163223-480-0.jpg"
+      "image": "/images/music/banjo.jpeg"
     },
     {
-      "image": "https://d3ugyf2ht6aenh.cloudfront.net/stores/910/057/products/memoespacio_011-ceaebf0cac3bd13dbe16051297859790-480-0.jpg"
+      "image": "/images/music/bass.jpeg"
     },
     {
-      "image": "https://http2.mlstatic.com/D_NQ_NP_868089-MLA48269714555_112021-O.webp"
+      "image": "/images/music/drums.jpeg"
     },
     {
-      "image": "https://d22fxaf9t8d39k.cloudfront.net/24e36efd9fdd4b17b14675b445929b33a5c8af0c6b5925306b17f49d4e0a931429655.jpeg"
+      "image": "/images/music/piano.jpeg"
     },
     {
-      "image": "https://mobbyt.com/media/gallery/a7d0d74b04d0d57c9cf5ac3f626aafe9/4d0c01ed_2020-09-14-mobbyt.png"
+      "image": "/images/music/violin.jpeg"
     }
   ]
 }

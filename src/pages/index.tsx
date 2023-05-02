@@ -20,7 +20,7 @@ export default function Home() {
   };
 
   const handleNewGameClick = (category: GameCategories) => {
-    const gameId = Math.random();
+    const gameId = Math.floor(Math.random() * 100);
     dispatch(startNewGame({ gameId, category }));
     router.push(`/game/${gameId}`);
   };
@@ -40,11 +40,13 @@ export default function Home() {
           ))}
         </>
       )}
-      <ul>
-        {gameList.map((game: Game) => (
-          <li key={game.id}>{game.id}</li>
-        ))}
-      </ul>
+      {gameList?.length > 0 && (
+        <ul>
+          {gameList.map((game: Game) => (
+            <li key={game.id}>{game.id}</li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

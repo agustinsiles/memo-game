@@ -4,14 +4,28 @@ import { shuffleCards } from "@/utils/utils";
 import { createSlice } from "@reduxjs/toolkit";
 import cards from "../../utils/cards.json";
 
-type State = {
+type IState = {
   games: Game[];
   activeGame?: number;
 };
-const initialState: State = {
-  games: [],
-  activeGame: undefined,
-};
+
+let savedSession;
+
+if (typeof window !== "undefined") {
+  // Wait for the browser to render
+  savedSession = localStorage.getItem("memoGames");
+}
+
+const initialState: IState = savedSession
+  ? JSON.parse(savedSession)
+  : {
+      games: [],
+      activeGame: undefined,
+    };
+
+function saveSession(state: IState) {
+  localStorage.setItem("memoGames", JSON.stringify(state));
+}
 
 export const gamesSlice = createSlice({
   name: "games",
@@ -33,23 +47,25 @@ export const gamesSlice = createSlice({
       });
 
       state.activeGame = gameId;
+
+      saveSession(state);
     },
     resumeGame: (state, action) => {
       const gameId = action.payload.gameId;
       state.activeGame = gameId;
+      saveSession(state);
     },
     endGame: (state) => {
-      let currentGame = state.games.find(
+      const currentGame = state.games.find(
         (game) => game.id === state.activeGame
       )!;
 
-      currentGame = {
-        ...currentGame,
-        status: GameStatus.OVER,
-      };
+      currentGame.status = GameStatus.OVER;
+      saveSession(state);
     },
     quitGame: (state) => {
       state.activeGame = undefined;
+      saveSession(state);
     },
     revealCard: (state, action) => {
       const currentGame = state.games.find(
@@ -60,12 +76,14 @@ export const gamesSlice = createSlice({
       if (currentGame.flippedCards.length < 2) {
         currentGame.flippedCards.push(card);
       }
+      saveSession(state);
     },
     hideCards: (state) => {
       const currentGame = state.games.find(
         (game) => game.id === state.activeGame
       )!;
       currentGame.flippedCards = [];
+      saveSession(state);
     },
     guessedPaired: (state) => {
       const currentGame = state.games.find(
@@ -73,6 +91,7 @@ export const gamesSlice = createSlice({
       )!;
       currentGame.guessedCards.push(...currentGame.flippedCards);
       currentGame.flippedCards = [];
+      saveSession(state);
     },
   },
 });
