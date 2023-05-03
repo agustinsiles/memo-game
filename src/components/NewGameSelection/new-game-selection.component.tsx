@@ -1,9 +1,13 @@
 import { useDispatch } from "react-redux";
 import { startNewGame } from "@/store/games/gamesSlice";
 import { useRouter } from "next/router";
-import Button from "@/components/Button/button.component";
+import Button, {
+  ButtonSizes,
+  ButtonVariants,
+} from "@/components/Button/button.component";
 import { GameCategories } from "@/utils/enums";
 import { useState } from "react";
+import Title from "../Title/title.component";
 
 const categories = Object.keys(GameCategories);
 
@@ -23,20 +27,30 @@ export default function NewGameSelection() {
   };
 
   return (
-    <>
-      <Button onClick={handleShowCategoriesClick}>New game</Button>
-      {showGameCategories && (
-        <>
+    <div className="m-10 text-center">
+      <Title>Memory Game</Title>
+      {showGameCategories ? (
+        <div>
           {categories.map((category) => (
             <Button
+              variant={ButtonVariants.DEFAULT}
               onClick={() => handleNewGameClick(category as GameCategories)}
               key={category}
             >
               {category}
             </Button>
           ))}
-        </>
+        </div>
+      ) : (
+        <Button
+          classNames="my-4"
+          variant={ButtonVariants.PRIMARY}
+          size={ButtonSizes.LG}
+          onClick={handleShowCategoriesClick}
+        >
+          New game
+        </Button>
       )}
-    </>
+    </div>
   );
 }

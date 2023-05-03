@@ -1,0 +1,31 @@
+.btn {
+  @apply p-2 border-0 text-white;
+}
+
+.primary {
+  @apply bg-primary;
+}
+
+.success {
+  @apply bg-success;
+}
+
+.danger {
+  @apply bg-danger;
+}
+
+.default {
+  @apply bg-white text-primary border-primary border;
+}
+
+.sm {
+  @apply text-xs;
+}
+
+.md {
+  @apply text-sm;
+}
+
+.lg {
+  @apply text-lg;
+}

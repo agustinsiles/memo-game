@@ -14,7 +14,11 @@ module.exports = {
       },
     },
     colors: {
-      testRed: "#c31b42",
+      primary: "#67156a",
+      secondary: "#1b1423",
+      white: "#FFFFFF",
+      success: "#5cb85c",
+      danger: "#ff444",
     },
   },
   plugins: [],

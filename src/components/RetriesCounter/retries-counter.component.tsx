@@ -6,5 +6,9 @@ export default function RetriesCounter({ gameId }: { gameId: number }) {
     state.games.games.find((game) => game.id === Number(gameId))
   )!;
 
-  return <div>{retries} retries</div>;
+  return (
+    <div className="italic text-white">
+      {retries} move{retries !== 1 ? "s" : ""}
+    </div>
+  );
 }

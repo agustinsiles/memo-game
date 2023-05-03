@@ -3,6 +3,7 @@ import { revealCard } from "@/store/games/gamesSlice";
 import { RootState } from "@/store/store";
 import Image from "next/image";
 import { useSelector, useDispatch } from "react-redux";
+import style from "./MemoCardItem.module.css";
 
 type IProps = {
   card: MemoCard;
@@ -26,20 +27,36 @@ export default function MemoCardItem({ card, position }: IProps) {
   };
 
   return (
-    <div className="w-full h-full">
-      {isCardVisible ? (
+    <div
+      className={`border-4 border-white rounded-md text-center cursor-pointer ${style.card}`}
+    >
+      <div
+        className={`${isCardVisible ? style.flipped : ""} text-center m-auto`}
+      >
         <Image
-          className="w-full"
           alt="Memo test"
           src={card.image}
-          width={500}
-          height={500}
+          width={100}
+          height={100}
+          layout="responsive"
+          className={`${style.front} ${style.image}`}
         />
-      ) : (
-        <div onClick={handleCardClick} className="text-testRed">
-          {position}
+
+        <div className="relative">
+          <Image
+            src="/images/card-cover.jpeg"
+            alt="Flip card"
+            onClick={handleCardClick}
+            className={style.back}
+            width={100}
+            height={100}
+            layout="responsive"
+          />
+          {!isCardVisible && (
+            <span className="absolute top-1/2">{position}</span>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 }

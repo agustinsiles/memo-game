@@ -5,7 +5,7 @@ import { resumeGame } from "@/store/games/gamesSlice";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import { GameStatus } from "@/utils/enums";
-import Button from "../Button/button.component";
+import Button, { ButtonSizes } from "../Button/button.component";
 import Score from "../Score/score.component";
 
 export default function GameList() {
@@ -27,10 +27,13 @@ export default function GameList() {
   return gameList.length > 0 ? (
     <ul>
       {gameList.map((game: Game) => (
-        <li key={game.id}>
-          {game.id} -{" "}
+        <li key={game.id} className="mt-8">
+          Game #{game.id} -{" "}
           {game.status === GameStatus.IN_PROGRESS ? (
-            <Button onClick={() => handleResumeGameClick(game.id)}>
+            <Button
+              size={ButtonSizes.SM}
+              onClick={() => handleResumeGameClick(game.id)}
+            >
               Resume
             </Button>
           ) : (
