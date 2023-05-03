@@ -31,11 +31,13 @@ export default function NewGameSelection() {
       <Title>Memory Game</Title>
       {showGameCategories ? (
         <div>
+          <p className="text-white my-2">Pick a category:</p>
           {categories.map((category) => (
             <Button
-              variant={ButtonVariants.DEFAULT}
+              variant={ButtonVariants.PRIMARY}
               onClick={() => handleNewGameClick(category as GameCategories)}
               key={category}
+              classNames="m-2"
             >
               {category}
             </Button>

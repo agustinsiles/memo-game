@@ -10,5 +10,5 @@ export function shuffleCards(cards: MemoCard[]) {
 }
 
 export function getScore(retries: number, numberOfPairs: number): number {
-  return (numberOfPairs / retries) * 100;
+  return Number(((numberOfPairs / retries) * 100).toFixed(2));
 }
