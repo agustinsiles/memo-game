@@ -23,3 +23,11 @@ pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the app.
+
+To open Storybook and see the app's components documentation, please run
+
+```bash
+npm run storybook
+```
+
+and a new tab should open on port 6006
