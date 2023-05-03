@@ -13,15 +13,13 @@ export default function GameList() {
     setGameList(games);
   }, [games]);
 
-  return (
-    gameList.length > 0 && (
-      <div className="container mx-auto text-center">
-        <ul>
-          {gameList.map((game: Game) => (
-            <GameListItem key={game.id} game={game} />
-          ))}
-        </ul>
-      </div>
-    )
-  );
+  return gameList.length > 0 ? (
+    <div className="container mx-auto text-center">
+      <ul>
+        {gameList.map((game: Game) => (
+          <GameListItem key={game.id} game={game} />
+        ))}
+      </ul>
+    </div>
+  ) : null;
 }
