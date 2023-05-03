@@ -29,7 +29,6 @@ export default function GameHeader({ game }: { game: Game }) {
       )}
       <div className="text-right">
         <Title>Game #{id}</Title>
-
         <RetriesCounter gameId={id} />
       </div>
     </header>

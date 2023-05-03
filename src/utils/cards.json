@@ -1,22 +1,22 @@
 {
   "SPORTS": [
     {
-      "image": "/images/sports/soccer.png"
+      "image": "/images/sports/soccer.jpeg"
     },
     {
       "image": "/images/sports/golf.jpeg"
     },
     {
-      "image": "/images/sports/baseball.png"
+      "image": "/images/sports/baseball.jpeg"
     },
     {
-      "image": "/images/sports/american-football.png"
+      "image": "/images/sports/american-football.jpeg"
     },
     {
-      "image": "/images/sports/tennis.png"
+      "image": "/images/sports/tennis.jpeg"
     },
     {
-      "image": "/images/sports/volleyball.png"
+      "image": "/images/sports/volleyball.jpeg"
     }
   ],
   "MUSIC": [
