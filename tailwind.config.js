@@ -18,7 +18,7 @@ module.exports = {
       secondary: "#1b1423",
       white: "#FFFFFF",
       success: "#5cb85c",
-      danger: "#ff444",
+      danger: "#DC3545",
     },
   },
   plugins: [],

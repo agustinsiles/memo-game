@@ -25,7 +25,8 @@ export default function GameHeader({ game }: { game: Game }) {
         <p className="text-white">
           {status === GameStatus.OVER && (
             <>
-              YOU WON! <Score score={score} />
+              <span className="text-success font-bold">YOU WON!</span>{" "}
+              <Score score={score} />
             </>
           )}
         </p>

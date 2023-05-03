@@ -1,3 +1,4 @@
+import { HTMLAttributes } from "react";
 import styles from "./Button.module.css";
 
 export enum ButtonVariants {
@@ -12,9 +13,8 @@ export enum ButtonSizes {
   MD = "md",
   LG = "lg",
 }
-interface Props {
-  children: React.ReactNode;
-  onClick: () => void;
+export interface IProps extends HTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode | string;
   variant?: ButtonVariants;
   size?: ButtonSizes;
   disabled?: boolean;
@@ -28,12 +28,12 @@ export default function Button({
   disabled,
   classNames = "",
   ...rest
-}: Props) {
+}: IProps) {
   return (
     <button
-      className={`${styles.btn} ${styles[variant]} ${styles[size]} ${classNames}`}
-      onClick={onClick}
+      className={`${styles.btn} ${styles[variant]} ${styles[size]} ${classNames} cursor-pointer`}
       disabled={disabled}
+      onClick={onClick}
       {...rest}
     >
       {children}
