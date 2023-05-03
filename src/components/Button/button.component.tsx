@@ -1,6 +1,6 @@
 import { HTMLAttributes } from "react";
 import styles from "./Button.module.css";
-import { ColorVariants } from "@/utils/enums";
+import { ColorVariants } from "./../../utils/enums";
 
 export enum ButtonSizes {
   SM = "sm",

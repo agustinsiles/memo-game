@@ -1,24 +1,19 @@
 import React from "react";
 import { Meta, StoryFn } from "@storybook/react";
-import Button, {
-  ButtonSizes,
-  IProps,
-} from "./../components/Button/button.component";
+import Title, { IProps } from "./../components/Title/title.component";
 import { ColorVariants } from "./../utils/enums";
 
 const meta: Meta = {
-  title: "Button",
-  component: Button,
+  title: "Title",
+  component: Title,
   args: {
-    size: ButtonSizes.MD,
-    classNames: "",
-    children: "Click me",
+    children: "This is a title",
   },
 };
 
 export default meta;
 
-const Template: StoryFn<IProps> = (args) => <Button {...args} />;
+const Template: StoryFn<IProps> = (args) => <Title {...args} />;
 
 export const Default = Template.bind({});
 export const Primary = Template.bind({});
