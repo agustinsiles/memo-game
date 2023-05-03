@@ -19,7 +19,7 @@ export default function GameHeader({ game }: { game: Game }) {
       <Button onClick={handleBackClick} size={ButtonSizes.SM}>
         Back to game list
       </Button>
-      <div>
+      <div className="text-right">
         <Title>Game #{id}</Title>
 
         <p className="text-white">

@@ -31,14 +31,15 @@ export default function MemoCardItem({ card, position }: IProps) {
       className={`border-4 border-white rounded-md text-center cursor-pointer ${style.card}`}
     >
       <div
-        className={`${isCardVisible ? style.flipped : ""} text-center m-auto`}
+        className={`${isCardVisible ? style.flipped : ""} text-center m-auto ${
+          style.cardWrapper
+        }`}
       >
         <Image
           alt="Memo test"
           src={card.image}
-          width={100}
-          height={100}
-          layout="responsive"
+          width={350}
+          height={350}
           className={`${style.front} ${style.image}`}
         />
 
@@ -47,13 +48,14 @@ export default function MemoCardItem({ card, position }: IProps) {
             src="/images/card-cover.jpeg"
             alt="Flip card"
             onClick={handleCardClick}
-            className={style.back}
-            width={100}
-            height={100}
-            layout="responsive"
+            className={`${style.back} ${style.image}`}
+            width={350}
+            height={350}
           />
           {!isCardVisible && (
-            <span className="absolute top-1/2">{position}</span>
+            <span className="absolute top-1/2 text-white font-bold text-lg">
+              {position}
+            </span>
           )}
         </div>
       </div>
