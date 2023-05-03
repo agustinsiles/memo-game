@@ -1,10 +1,10 @@
 import React from "react";
-import { Meta, Story, StoryFn } from "@storybook/react";
+import { Meta, StoryFn } from "@storybook/react";
 import Button, {
   ButtonSizes,
-  ButtonVariants,
   IProps,
 } from "./../components/Button/button.component";
+import { ColorVariants } from "@/utils/enums";
 
 const meta: Meta = {
   title: "Button",
@@ -26,17 +26,17 @@ export const Success = Template.bind({});
 export const Danger = Template.bind({});
 
 Default.args = {
-  variant: ButtonVariants.DEFAULT,
+  variant: ColorVariants.DEFAULT,
 };
 
 Primary.args = {
-  variant: ButtonVariants.PRIMARY,
+  variant: ColorVariants.PRIMARY,
 };
 
 Success.args = {
-  variant: ButtonVariants.SUCCESS,
+  variant: ColorVariants.SUCCESS,
 };
 
 Danger.args = {
-  variant: ButtonVariants.DANGER,
+  variant: ColorVariants.DANGER,
 };

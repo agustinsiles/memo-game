@@ -5,3 +5,19 @@
 body {
   @apply bg-secondary;
 }
+
+.primary {
+  @apply text-primary;
+}
+
+.success {
+  @apply text-success;
+}
+
+.danger {
+  @apply text-danger;
+}
+
+.default {
+  @apply text-white;
+}

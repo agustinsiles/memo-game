@@ -1,12 +1,6 @@
 import { HTMLAttributes } from "react";
 import styles from "./Button.module.css";
-
-export enum ButtonVariants {
-  DEFAULT = "default",
-  PRIMARY = "primary",
-  SUCCESS = "success",
-  DANGER = "danger",
-}
+import { ColorVariants } from "@/utils/enums";
 
 export enum ButtonSizes {
   SM = "sm",
@@ -14,8 +8,8 @@ export enum ButtonSizes {
   LG = "lg",
 }
 export interface IProps extends HTMLAttributes<HTMLButtonElement> {
-  children: React.ReactNode | string;
-  variant?: ButtonVariants;
+  children: React.ReactNode;
+  variant?: ColorVariants;
   size?: ButtonSizes;
   disabled?: boolean;
   classNames?: string;
@@ -23,7 +17,7 @@ export interface IProps extends HTMLAttributes<HTMLButtonElement> {
 export default function Button({
   children,
   onClick,
-  variant = ButtonVariants.DEFAULT,
+  variant = ColorVariants.DEFAULT,
   size = ButtonSizes.MD,
   disabled,
   classNames = "",

@@ -19,17 +19,17 @@ export default function GameHeader({ game }: { game: Game }) {
       <Button onClick={handleBackClick} size={ButtonSizes.SM}>
         Back to game list
       </Button>
+      {status === GameStatus.OVER && (
+        <div className="text-success">
+          <div>You won!</div>
+          <p>
+            <Score score={score} />
+          </p>
+        </div>
+      )}
       <div className="text-right">
         <Title>Game #{id}</Title>
 
-        <p className="text-white">
-          {status === GameStatus.OVER && (
-            <>
-              <span className="text-success font-bold">YOU WON!</span>{" "}
-              <Score score={score} />
-            </>
-          )}
-        </p>
         <RetriesCounter gameId={id} />
       </div>
     </header>

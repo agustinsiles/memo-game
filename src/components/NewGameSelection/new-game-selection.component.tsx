@@ -1,11 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import { startNewGame } from "@/store/games/gamesSlice";
 import { useRouter } from "next/router";
-import Button, {
-  ButtonSizes,
-  ButtonVariants,
-} from "@/components/Button/button.component";
-import { GameCategories } from "@/utils/enums";
+import Button, { ButtonSizes } from "@/components/Button/button.component";
+import { ColorVariants, GameCategories } from "@/utils/enums";
 import { useState } from "react";
 import Title from "../Title/title.component";
 import { RootState } from "@/store/store";
@@ -38,7 +35,7 @@ export default function NewGameSelection() {
           <p className="text-white my-2">Pick a category:</p>
           {categories.map((category) => (
             <Button
-              variant={ButtonVariants.PRIMARY}
+              variant={ColorVariants.PRIMARY}
               onClick={() => handleNewGameClick(category as GameCategories)}
               key={category}
               classNames="m-2"
@@ -50,7 +47,7 @@ export default function NewGameSelection() {
       ) : (
         <Button
           classNames="my-4"
-          variant={ButtonVariants.PRIMARY}
+          variant={ColorVariants.PRIMARY}
           size={ButtonSizes.LG}
           onClick={handleShowCategoriesClick}
         >

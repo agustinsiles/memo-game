@@ -8,3 +8,10 @@ export enum GameCategories {
   SPORTS = "SPORTS",
   MUSIC = "MUSIC",
 }
+
+export enum ColorVariants {
+  DEFAULT = "default",
+  PRIMARY = "primary",
+  SUCCESS = "success",
+  DANGER = "danger",
+}
