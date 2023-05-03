@@ -16,11 +16,15 @@ export default function GameListItem({ game }: { game: Game }) {
   };
 
   return (
-    <li
-      key={game.id}
-      className="my-8 bg-white border-primary p-4 h-20 flex items-center justify-between"
-    >
-      <div>Game #{game.id}</div>
+    <li className="my-8 bg-white border-primary p-4 h-20 flex items-center justify-between">
+      <div>
+        Game #{game.id}{" "}
+        {game.hasHighestScore && (
+          <span className="uppercase text-primary font-bold">
+            Highest score!
+          </span>
+        )}
+      </div>
       <div>
         {game.status === GameStatus.IN_PROGRESS ? (
           <Button size={ButtonSizes.SM} onClick={handleResumeGameClick}>

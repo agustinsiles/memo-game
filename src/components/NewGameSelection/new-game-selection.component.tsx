@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { startNewGame } from "@/store/games/gamesSlice";
 import { useRouter } from "next/router";
 import Button, {
@@ -8,11 +8,15 @@ import Button, {
 import { GameCategories } from "@/utils/enums";
 import { useState } from "react";
 import Title from "../Title/title.component";
+import { RootState } from "@/store/store";
 
 const categories = Object.keys(GameCategories);
 
 export default function NewGameSelection() {
   const dispatch = useDispatch();
+  const lastSavedGame = useSelector(
+    (state: RootState) => state.games.games[state.games.games.length - 1]
+  );
   const router = useRouter();
   const [showGameCategories, setShowGameCategories] = useState(false);
 
@@ -21,7 +25,7 @@ export default function NewGameSelection() {
   };
 
   const handleNewGameClick = (category: GameCategories) => {
-    const gameId = Math.floor(Math.random() * 100);
+    const gameId = lastSavedGame ? lastSavedGame.id + 1 : 1;
     dispatch(startNewGame({ gameId, category }));
     router.push(`/game/${gameId}`);
   };

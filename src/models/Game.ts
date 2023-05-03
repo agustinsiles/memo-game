@@ -9,4 +9,5 @@ export type Game = {
   guessedCards: MemoCard[];
   score: number;
   retries: number;
+  hasHighestScore: boolean;
 };

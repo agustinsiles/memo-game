@@ -40,7 +40,7 @@ export default function GameItem() {
   }, [flippedCards, dispatch]);
 
   if (!game) {
-    return <p>Loading saved game...</p>;
+    return null;
   }
 
   return (

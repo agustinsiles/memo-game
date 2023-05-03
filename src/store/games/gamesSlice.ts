@@ -1,6 +1,6 @@
 import { Game } from "@/models/Game";
 import { GameCategories, GameStatus } from "@/utils/enums";
-import { getScore, shuffleCards } from "@/utils/utils";
+import { getCurrentHighestScore, getScore, shuffleCards } from "@/utils/utils";
 import { createSlice } from "@reduxjs/toolkit";
 import cards from "../../utils/cards.json";
 
@@ -45,6 +45,7 @@ export const gamesSlice = createSlice({
         guessedCards: [],
         score: 0,
         retries: 0,
+        hasHighestScore: false,
       });
 
       state.activeGame = gameId;
@@ -65,6 +66,10 @@ export const gamesSlice = createSlice({
         currentGame.retries,
         currentGame.cards.length / 2
       );
+
+      const highestScore = getCurrentHighestScore(state.games);
+      currentGame.hasHighestScore = highestScore <= currentGame.score;
+
       saveSession(state);
     },
     quitGame: (state) => {
